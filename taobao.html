@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引导</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script src="src/vendor/flexible.js"></script>
+    <script src="src/vendor/flexible.debug.js"></script>
+    <script src="src/vendor/flexible_css.js"></script>
+    <script src="src/vendor/flexible_css.debug.js"></script>
+    <link rel="stylesheet" href="src/style/index.css">
+
+</head>
+<body>
+<div class="item-section" id="content" data-repeat="sections"></div>
+<div id="items"></div>
+<script src="src/vendor/template.js"></script>
+<script id="title_img" type="text/html">
+    <div class="item-section_header">
+        {{each sections as value i}}
+        <h2><img src={{value.brannerImag}} alt=""></h2>
+        {{/each}}
+
+    </div>
+</script>
+<script id="item" type="text/html">
+
+    <ul>
+        {{each items as value i}}
+
+        <li data-repeat="items" class="flag" role="link" href={{value.itemLink}}>
+            <a class="figure flag-item" href={{value.itemLink}}>
+                <img src={{value.imgSrc}} alt="">
+            </a>
+            <div class="figcaption flag-item">
+                <div class="flag-title"><a href={{value.itemLink}} title="">{{value.poductName}}</a></div>
+                <div class="flag-price"><span>双11价</span><strong>¥{{value.price}}</strong>
+                    <small>{{value.preferential}}</small>
+                </div>
+                <div class="flag-type">{{value.activityType}}</div>
+                <a class="flag-btn" href={{value.shopLink}}>{{value.activeName}}</a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
+</script>
+
+
+
+
+<script src="src/vendor/jquery-3.1.1.min.js"></script>
+
+<script>
+    var pageData = {
+        sections: [{
+            "brannerImag": "http://gw.alicdn.com/mt/TB1PNLZKXXXXXaTXXXXXXXXXXXX-750-481.jpg",
+            items: [
+                {
+                "itemLink": "##",
+                "imgSrc": "https://placeimg.com/350/350/people/grayscale",
+                "poductName": "Carter's1年式灰色长袖连体衣包脚爬服全棉鲸鱼男婴儿童装115G093",
+                "price": "299.06",
+                "preferential": "满400减100",
+                "activityType": "1小时内热卖5885件",
+                "shopLink": "##",
+                "activeName": "马上抢！"
+            }, {
+                "itemLink": "##",
+                "imgSrc": "https://placeimg.com/350/350/people/grayscale",
+                "poductName": "Nike耐克官方ZOOM KOBE VENOMENON 5 EP 科比男子篮球鞋815757",
+                "price": "699.50",
+                "preferential": "满300减150",
+                "activityType": "6744人正在疯抢",
+                "shopLink": "##",
+                "activeName": "马上抢！"
+            }, {
+                "itemLink": "##",
+                "imgSrc": "https://placeimg.com/350/350/people/grayscale",
+                "poductName": "现货【送皮套+钢膜+耳机】Xiaomi/小米 红米Note2手机note2",
+                "price": "799.00",
+                "preferential": "满300减150",
+                "activityType": "7833人正在疯抢",
+                "shopLink": "##",
+                "activeName": "马上抢！"
+            }, {
+                "itemLink": "##",
+                "imgSrc": "https://placeimg.com/350/350/people/grayscale",
+                "poductName": "ONLY2015秋装新品七分袖弹力修身针织衫女",
+                "price": "299.00",
+                "preferential": "满300减100",
+                "activityType": "2379人想买",
+                "shopLink": "##",
+                "activeName": "马上抢！"
+            }, {
+                "itemLink": "##",
+                "imgSrc": "https://placeimg.com/350/350/people/grayscale",
+                "poductName": "Levi's李维斯513春季男士修身直筒牛仔裤长裤",
+                "price": "399.00",
+                "preferential": "满300减100",
+                "activityType": "预热期加购TOP1",
+                "shopLink": "##",
+                "activeName": "马上抢！"
+            }, {
+                "itemLink": "##",
+                "imgSrc": "https://placeimg.com/350/350/people/grayscale",
+                "poductName": "Levi's李维斯513春季男士修身直筒牛仔裤长裤",
+                "price": "399.00",
+                "preferential": "满300减100",
+                "activityType": "预热期加购TOP1",
+                "shopLink": "##",
+                "activeName": "马上抢！"
+            }]
+        }]
+
+    };
+    var html = template('title_img', pageData);
+    document.getElementById('content').innerHTML = html;
+
+    var items = template('item', pageData.sections[0]);
+    document.getElementById('items').innerHTML = items;
+    //    var html1 = template('items', pageData.sections);
+    //    document.getElementById('content').innerHTML = html1;
+</script>
+</body>
+</html>

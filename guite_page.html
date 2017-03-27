@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>guide</title>
+		<script src="src/vendor/flexible.js"></script>
+		<script src="src/vendor/flexible.debug.js"></script>
+		<script src="src/vendor/flexible_css.js"></script>
+		<script src="src/vendor/flexible_css.debug.js"></script>
+		<link rel="stylesheet" href="./src/style/guide.css">
+
+	</head>
+
+	<body>
+		<article class="page_title">
+			<h1 class="page_big_title">填写邀请码</h1>
+			<h2 class="page_detail">在工作人员的帮助下</h2>
+		</article>
+		<div class="step">
+			<img src="./src/image/step4.png" alt="">
+		</div>
+
+		<div class="content">
+			<div class="breathe_bale no_classes">
+				<div id="bg_qiu" class="bg_qiu"></div>
+
+				<div id="min_qiu" class="min_qiu"></div>
+				<div class="handle"></div>
+			</div>
+
+			<img class="phone" src="./src/image/phoneBack.png" alt="">
+			<div class="invit_content">
+				<img class="invite_number" src="src/image/bg_bg.png" alt="">
+				<div class="tip_invite tip_step2"></div>
+				<input type="text" placeholder="请填写邀请码" class="invite_input">
+				<div class="tip_invite tip_step3"></div>
+
+				<button class="sure_invite">确定</button>
+				<div class="shade_phone shade_page1">
+					<svg style="position: absolute;" width="100%" height="100%">
+						<defs>
+							<mask id="mask3">
+								<rect class="react1" x="0" y="0" width="100%" height="100%" style="fill: #ccc"></rect>
+								<rect class="rect2" x="15%" y="70%" rx="15" width="70%" height="1.5rem" style="fill: #000" />
+								<rect class="rect3" x="14%" y="37%" rx="15" width="72%" height="1.5rem" style="fill: #000;display: none" />
+								<rect class="rect4" x="15%" y="50%" rx="2%" ry="2%" width="70%" height="1.5rem" style="fill: #000;display: none" />
+								<rect class="rect5" x="2%" y="91%" rx="2%" ry="2%" width="95%" height="1.2rem" style="fill: rgb(0, 0, 0);display: none"></rect>
+								<rect class="rect5" x="30%" y="15%" rx="2%" ry="2%" width="40%" height="4rem" style="fill: rgb(0, 0, 0);display: none"></rect>
+								<!--<rect class="rect5" x="30%" y="18%" rx="2%" ry="2%" width="40%" height="5.5rem" style="fill: rgb(0, 0, 0);display: none"></rect>-->
+								<rect class="rect5" x="30%" y="49.5%" rx="2%" ry="2%" width="40%" height="4rem" style="fill: rgb(0, 0, 0);display: none"></rect>
+
+							</mask>
+						</defs>
+						<rect x="0" y="0" width="100%" height="100%" style="fill: rgba(0,0,0,0.65);  mask: url(#mask3)"></rect>
+					</svg>
+				</div>
+				<div class="tip_invite tip_step1"></div>
+			</div>
+
+			<!--协议-->
+			<div class="agreement_content">
+				<img src="./src/image/xieyi.jpg" class="img_static" alt="">
+				<button class="agree_agreement">同意协议</button>
+			</div>
+			<!--身份选择-->
+			<div class="choose_id_content">
+				<div class="tip_invite tip_step5" style="display: none;"></div>
+				<img class="choose_id_page " src="src/image/chouse.png" alt="" />
+			</div>
+			<!--选择法人-->
+			<div class="breathe_bale" id="artificial_pers" style="display: none;">
+				<div id="bg_qiu" class="bg_qiu"></div>
+
+				<div id="min_qiu" class="min_qiu"></div>
+				<div class="handle"></div>
+			</div>
+
+			<!--选择被授权人-->
+			<div class="breathe_bale" id="authorized_pers" style="display: none;">
+				<div id="bg_qiu" class="bg_qiu"></div>
+				<div id="min_qiu" class="min_qiu"></div>
+				<div class="handle"></div>
+			</div>
+			<!--法人4-1-->
+			<div class="shop_water_1">
+				<div class="shop_water1_content">
+					<img src="src/image/apply.png" alt="" />
+					<ul class="sm_list">
+						<li class="row"><strong>门店名称</strong><input type="text" placeholder="请填写店铺门头名称" /></li>
+						<li class="row"><strong>门店名称</strong><input type="text" placeholder="请填写店铺门头名称" /></li>
+						<li class="row"><strong>门店名称</strong><input type="text" placeholder="请填写店铺门头名称" /></li>
+					</ul>
+					<ul class="sm_list">
+						<li class="row"><span><label for="area">经营地址</label></span><input type="text" placeholder="请选择省市区" /><span></span>
+							<li class="row">请填写详细地址，如街道小区门牌号等</li>
+					</ul>
+					<ul class="sm_list">
+						<li class="row"><strong>经营类目</strong><input type="text" placeholder="请选择" /></li>
+
+					</ul>
+
+					<button class="next">下一步</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="src/vendor/jquery-3.1.1.min.js"></script>
+		<script>
+			var shade_phone = document.querySelector("#shade_phone");
+			setTimeout(function() {
+				$(".tip_step1").fadeIn();
+				$(".breathe_bale:nth-child(1)").fadeIn();
+				$(".shade_phone").fadeIn();
+				$("#relation").fadeIn();
+				$(".breathe_bale").find("#bg_qiu").fadeIn();
+				$(".breathe_bale").find("#min_qiu").fadeIn();
+				$(".breathe_bale").find(".handle").fadeIn();
+			}, 1000);
+			var clicknumber = 0;
+
+			$(".breathe_bale").click(function() {
+				clicknumber++;
+				console.log(clicknumber);
+				switch(clicknumber) {
+
+					case 1:
+						$(".breathe_bale").addClass("movetoinvate");
+						$('#mask3>rect:nth-child(2)').fadeOut(500);
+						$('#mask3>rect:nth-child(3)').fadeIn(500);
+						$(".tip_step1").fadeOut();
+						$(".tip_step2").fadeIn();
+						break;
+					case 2:
+						$(".breathe_bale").removeClass("movetoinvate").addClass("movetosure");
+
+						$('#mask3>rect:nth-child(3)').fadeOut(500);
+						$('#mask3>rect:nth-child(4)').fadeIn(500);
+						$(".tip_invite:nth-child(1)").fadeOut(500);
+						$(".tip_step2").fadeOut();
+						$(".tip_step3").fadeIn();
+						//第二次点击的时候处罚input的按钮
+						//内容填充1s
+						$(".invite_input").delay(500).val("123");
+						break;
+					case 3:
+						//先显示协议内容
+						$(".tip_step3").fadeOut();
+						$(".tip_step4").fadeIn();
+						$('#mask3>rect:nth-child(4)').fadeOut(500);
+						$(".invit_content").fadeOut(500);
+						$(".agreement_content").fadeIn(500);
+						$(".breathe_bale").fadeOut(500);
+						var arg_scrolltop = 0;
+						var img_static_height = $(".img_static").height() + $(".agree_agreement").height() - $(".agreement_content").height();
+						//滚动到地步添加遮罩层
+						if(arg_scrolltop < img_static_height) {
+							timer = setInterval(function() {
+								arg_scrolltop += 50;
+								$(".agreement_content").scrollTop(arg_scrolltop);
+								if(arg_scrolltop >= img_static_height) {
+									clearInterval(timer);
+									$(".invit_content").fadeIn();
+									$('#mask3>rect:nth-child(5)').fadeIn(500);
+									$(".tip_step4").fadeIn();
+									$('.no_classes').fadeIn()
+								}
+							}, 100)
+						}
+						break;
+					case 4:
+						$(".agreement_content").fadeOut()
+						$(".invit_content").fadeOut();
+						$('#mask3>rect:nth-child(5)').fadeOut(500);
+						$(".tip_step4").fadeOut();
+						$('.breathe_bale').fadeOut();
+						$('.choose_id_content').fadeIn();
+						$('.choose_id_page').fadeIn();
+						$(".invit_content").delay(500).fadeIn(1000);
+
+						$('#mask3>rect:nth-child(6)').delay(500).fadeIn(500);
+						$('#mask3>rect:nth-child(7)').delay(500).fadeIn(500);
+
+						$(".tip_choose").fadeIn();
+						$(".tip_step5").fadeIn();
+						$("#artificial_pers").removeClass('movetosure').fadeIn(1000);
+						$("#artificial_pers").find('.bg_qiu').fadeIn();
+						$("#artificial_pers").find('.min_qiu').fadeIn();
+						$("#authorized_pers").removeClass('movetosure').delay(500).fadeIn(1000).find('.bg_qiu').fadeIn()
+						$("#authorized_pers").find('.min_qiu').fadeIn();
+						var e = $('.shop_water1_content input[type=text]')
+
+						$("#artificial_pers").on('click', function() {
+						arrcontent = ['1', '2', '3', '4', '5', '6', '7']
+							
+							console.log('走法人');
+							allclear();
+							$(".shop_water_1").fadeIn();
+							fillword($('.shop_water1_content input[type=text]'), arrcontent)
+						})
+						$("#authorized_pers").on('click', function() {
+							console.log('走被授权人');
+							allclear();
+						})
+						break;
+
+				}
+				if(clicknumber == 10) {
+					clicknumber = 0;
+				}
+
+			})
+
+			function allclear() {
+				$('.choose_id_content').fadeOut();
+				$('.choose_id_page').fadeOut();
+				$(".invit_content").fadeOut();
+
+				$('#mask3>rect:nth-child(6)').fadeOut();
+				$('#mask3>rect:nth-child(7)').fadeOut();
+
+				$(".tip_choose").fadeOut();
+				$(".tip_step5").fadeOut();
+				$("#artificial_pers").fadeOut();
+				$("#artificial_pers").find('.bg_qiu').fadeOut();
+				$("#artificial_pers").find('.min_qiu').fadeOut();
+				$("#artificial_pers").find('.handle').fadeOut();
+
+				$("#authorized_pers").find('.bg_qiu').fadeOut();
+				$("#authorized_pers").find('.min_qiu').fadeOut();
+				$("#authorized_pers").find('.handle').fadeOut();
+			}
+             a=$('.shop_water1_content input[type=text]')
+			function fillword(a, arr) {
+
+				for(var i = 0; i <= a.length-1; i++) {
+					console.log(i);
+					var setval = setInterval(function() {
+                       a.eq(i).val(arr[i]);
+						if(i == a.length) {
+							clearInterval(setval);
+						}
+					}, 1000)
+
+				}
+
+			}
+		</script>
+	</body>
+
+</html>

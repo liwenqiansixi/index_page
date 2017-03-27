@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引导页</title>
+    <style>
+        *{
+            margin:0;
+            padding:0
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        #bg_qiu{
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top:50%;
+            left:50%;
+            border-radius: 50%;
+        }
+        .bg_qiu{
+            width:100px;
+            height: 100px;
+            background: rgba(233,233,122,1);
+            transition:all 1s ;
+        }
+        .bg_qiu_active{
+            width:80px;
+            height: 80px;
+            background: rgba(233,233,122,0.3);
+            transition:all 1s ;
+
+        }
+        #min_qiu{
+
+            border-radius: 50%;
+            position: relative;
+            transform: translateY(-50%);
+            top:50%;
+            margin:0 auto;
+        }
+        .min_qiu{
+            width: 60px;
+            height:60px;
+            background: rgba(222,22,212,0.3);
+            transition:all 1s ;
+        }
+        .min_qiu_active{
+            width: 65px;
+            height: 65px;
+            background: rgba(222,22,212,1);
+            transition:all 1s ;
+
+        }
+    </style>
+</head>
+<body>
+<div id="bg_qiu" class="bg_qiu">
+<div id="min_qiu" class="min_qiu"></div>
+</div>
+<script src="src/vendor/jquery-3.1.1.min.js"></script>
+<script>
+    setInterval(function(){
+        $('#bg_qiu').toggleClass("bg_qiu");
+        $('#bg_qiu').toggleClass("bg_qiu_active");
+        $("#min_qiu").toggleClass("min_qiu");
+        $("#min_qiu").toggleClass("min_qiu_active");
+
+    },1000)
+
+
+</script>
+</body>
+</html>
